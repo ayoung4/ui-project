@@ -1,0 +1,3 @@
+Template.indexPage.onCreated(function () {
+
+});
