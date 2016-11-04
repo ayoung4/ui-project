@@ -1,7 +1,13 @@
 <template name="sortableList">
-    <ul class="collection">
-        {{#each item in listItems}}
-            {{> sortableListItem (sortableListItemArgs item)}}
+    <ul id="js-sortable-list" class="collection">
+        <!-- 
+            pass a data context to each list item, ie. sortableListItemArgs()
+            data contexts should be enclosed in parenthesis to distinguish them
+            from other calls to template helpers 
+        -->
+        {{#each item in list}}
+            {{> sortableListItem (sortableListItemArgs @index item)}}
         {{/each}}
     </ul>
+    <div id="js-log-state" class="btn">log state</div>
 </template>

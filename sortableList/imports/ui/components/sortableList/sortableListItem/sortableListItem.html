@@ -1,17 +1,11 @@
 <template name="sortableListItem">
-    <a href="#!" class="collection-item">
-        <div>
-            <h5>this.item.title</h5>
-            <a href="#!" class="secondary-content">
-                <div class="switch">
-                    <label>
-                        Off
-                        <input type="checkbox">
-                        <span class="lever"></span>
-                        On
-                    </label>
-                </div>
-            </a>
-        </div>
-    </a>
+	<li class="collection-item avatar">
+		<span class="title">{{this.item.title}}</span>
+		<form class="secondary-content">
+			<p>
+				<input type="checkbox" id={{this.item.title}} class="js-checkbox" {{isToggled}} />
+				<label for={{this.item.title}}>checked?</label>
+			</p>
+		</form>
+	</li>
 </template>

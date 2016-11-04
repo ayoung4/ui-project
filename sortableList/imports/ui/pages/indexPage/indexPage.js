@@ -11,9 +11,8 @@ Session.setDefault('list', [
     { title: 'D', toggled: false }
 ]);
 
-Template.indexPage.onCreated(function () {
-
-});
+// indexPage is a smart component because it relies on a data source - a session variable
+// components that query the database are also smart
 
 Template.indexPage.helpers({
     sortableListArgs() {
