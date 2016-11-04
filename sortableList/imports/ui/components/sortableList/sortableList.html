@@ -1,7 +1,7 @@
 <template name="sortableList">
-    <div class="collection">
+    <ul class="collection">
         {{#each item in listItems}}
             {{> sortableListItem (sortableListItemArgs item)}}
         {{/each}}
-    </div>
+    </ul>
 </template>
