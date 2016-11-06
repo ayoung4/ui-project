@@ -26,7 +26,12 @@ Template.sortableList.onCreated(function () {
     }
 
     this.reorderList = (index, newIndex) => {
-        // complete this method
+        const listItems = this.state.get('listItems');
+        const temp = listItems[index];
+        const dir = index < newIndex ? 1 : -1;
+        for(let i = index; i != newIndex; i += dir) listItems[i] = listItems[i + dir];
+        listItems[newIndex] = temp;
+        this.state.set('listItems', listItems);
     };
 
 });
@@ -37,7 +42,7 @@ Template.sortableList.onRendered(function () {
         revert: true,
         containment: 'parent',
         start(event, ui) {
-            // template.state.set('selected', ...)
+            template.state.set('selected', ui.item.index());
         },
         stop(event, ui) {
             template.reorderList(template.state.get('selected'), ui.item.index());
